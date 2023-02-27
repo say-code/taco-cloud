@@ -1,0 +1,4 @@
+spring:
+  thymeleaf:
+    # 禁用模板缓存（用于生产环境应当调整为开启状态）
+    cache: false

@@ -1,0 +1,9 @@
+.ingredient_group{
+    width: 40%;
+}
+.grid{
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    width: 50%;
+}
