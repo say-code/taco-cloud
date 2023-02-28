@@ -76,12 +76,19 @@ public class DesignTacoController {
                 .collect(Collectors.toList());
     }
 
-
+    /**
+     * 该方法所携带的ModelAttribute注解能够确保咋模型中创建一个Order对象
+     * @return order对象
+     */
     @ModelAttribute(name = "order")
     public Order order(){
         return new Order();
     }
 
+    /**
+     * 同上
+     * @return taco对象
+     */
     @ModelAttribute(name = "taco")
     public Taco taco(){
         return new Taco();
@@ -91,15 +98,16 @@ public class DesignTacoController {
     public String processDesign(@Valid Taco design,
                                 Errors errors,
                                 @ModelAttribute Order order){
+
         if (errors.hasErrors()){
-            log.info(errors.toString());
             return "design";
         }
-        log.info(design.toString());
+
         Taco saved = tacoRepository.save(design);
-        log.info(order.toString());
         order.addDesign(saved);
+
         log.info("Processing design: " + design);
+
         return "redirect:/orders/current";
     }
 }

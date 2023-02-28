@@ -22,15 +22,15 @@ alter table taco_ingredients
 
 create table if not exists taco_order(
     id identity,
-    delivery_name varchar(50) not null,
-    delivery_street varchar(50) not null,
-    delivery_city varchar(50) not null,
-    delivery_state varchar(2) not null,
-    delivery_zip varchar(10) not null,
-    cc_number varchar(16) not null ,
-    cc_expiration varchar(5) not null ,
-    cc_cVV varchar(3) not null ,
-    placed_at timestamp not null
+    name varchar(50) not null,
+    street varchar(50) not null,
+    city varchar(50) not null,
+    state varchar(2) not null,
+    zip varchar(10) not null,
+    ccNumber varchar(16) not null ,
+    ccExpiration varchar(5) not null ,
+    ccCVV varchar(3) not null ,
+    placedAt timestamp not null
 );
 
 create table if not exists taco_order_tacos(
