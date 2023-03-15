@@ -16,6 +16,7 @@ import sia.tacocloud.data.TacoRepository;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -57,7 +58,7 @@ public class DesignTacoController {
                     filterByType(ingredients, type));
         }
 
-        model.addAttribute("design", new Taco());
+        // model.addAttribute("design", new Taco());
         
         return "design";
     }
@@ -89,7 +90,7 @@ public class DesignTacoController {
      * 同上
      * @return taco对象
      */
-    @ModelAttribute(name = "taco")
+    @ModelAttribute(name = "design")
     public Taco taco(){
         return new Taco();
     }
@@ -100,13 +101,21 @@ public class DesignTacoController {
                                 @ModelAttribute Order order){
 
         if (errors.hasErrors()){
+            log.info(errors.toString());
             return "design";
         }
 
+        // Taco design = new Taco(){{
+        //    setName(name);
+        //    setIngredients(ingredients);
+        // }};
+        design.setCreatedAt(new Date());
         Taco saved = tacoRepository.save(design);
         order.addDesign(saved);
 
         log.info("Processing design: " + design);
+        log.info("Processing order:" + order);
+        // log.info("Processing ingredient:" + ingredients);
 
         return "redirect:/orders/current";
     }

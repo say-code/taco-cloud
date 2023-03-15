@@ -2,17 +2,18 @@ package sia.tacocloud.data;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
-import sia.tacocloud.Order;
-import sia.tacocloud.Taco;
+import sia.tacocloud.Users;
 
 /**
  * @author 汪亦涵
- * @date 2023/2/27 18:18
+ * @date 2023/3/2 15:46
  * @project taco-cloud
- * @Title TacoRepository
+ * @Title UserRepository
  * @description TODO
  */
-public interface TacoRepository extends CrudRepository<Taco, Long> {
+public interface UserRepository extends CrudRepository<Users, Long> {
 
-    // Taco save(Taco design);
+    Users findByUsername(String username);
+
+
 }

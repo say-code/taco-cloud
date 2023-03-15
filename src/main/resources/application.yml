@@ -2,3 +2,36 @@ spring:
   thymeleaf:
     # 禁用模板缓存（用于生产环境应当调整为开启状态）
     cache: false
+
+  jpa:
+    # 配置显示sql语句
+    show-sql: true
+    properties:
+      hibernate:
+        hbm2ddl:
+          # 配置自动更新数据库
+          auto: update
+
+#  profiles:
+#    active:
+#      - prod
+      # 当然，这样子做体会不到任何好处，建议通过环境变量来设置出与激活状态的profile
+      # % export SPRING_PROFILES_ACTIVE=prod
+      # 如果用jar包运行，那么 java -jar taco-cloud.jar --spring.profiles.active=prod
+
+
+# 配置日志
+logging:
+  file:
+    name: log/taco-cloud.log
+  level:
+    root: INFO
+    org:
+      springframework:
+        security: DEBUG
+    taco: DEBUG
+# 自定义配置
+taco:
+  orders:
+    # 配置分页大小
+    pageSize: 10

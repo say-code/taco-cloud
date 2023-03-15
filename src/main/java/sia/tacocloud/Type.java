@@ -7,7 +7,7 @@ package sia.tacocloud;
  * Title: Type
  * description: TODO
  */
-public enum Type {
+public enum Type{
     /**
      * 隐藏，蛋白，蔬菜，奶酪，调味汁
      */

@@ -1,0 +1,13 @@
+# 定义特定 profile 相关的属性的一种方式就是创建另外一个 YAML 或属性文件，其中只包含用于生产环境的属性。
+#   文件的名称约定：application-{profile名}.yml 或 application-{profile名}.properties
+logging:
+  level:
+    tacos: WARN
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/taco-cloud?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 2002525wyh1+1=2
+    driver-class-name: com.mysql.cj.jdbc.Driver
